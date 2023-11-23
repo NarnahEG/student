@@ -14,7 +14,7 @@ class Program
         Dictionary<int, List<string>> studentsByAge = StudentData.GetStudentsWithAge(studentAges, studentNames);
 
         int ageToCheck = 18;
-        if (studentsByAge.TryGetValue(ageToCheck, out List<string> studentsWithAge))
+        if (studentsByAge.TryGetValue(ageToCheck, out List<string>? studentsWithAge))
         {
             Console.WriteLine($"The following students are {ageToCheck} years old:");
             foreach (string student in studentsWithAge)
@@ -27,6 +27,7 @@ class Program
             Console.WriteLine($"No student with age {ageToCheck} found in the list.");
         }
     }
+
     public class Student
     {
         public string Name { get; set; }
@@ -43,6 +44,12 @@ class Program
     {
         public static Dictionary<int, List<string>> GetStudentsWithAge(int[] studentAges, string[] studentNames)
         {
+            if (studentAges == null || studentNames == null || studentAges.Length != studentNames.Length)
+            {
+                Console.WriteLine("Error: Invalid input arrays.");
+                return new Dictionary<int, List<string>>();
+            }
+
             Dictionary<int, List<string>> studentsByAge = new Dictionary<int, List<string>>();
 
             for (int i = 0; i < studentAges.Length; i++)
@@ -60,7 +67,6 @@ class Program
 
             return studentsByAge;
         }
+
     }
-
 }
-
