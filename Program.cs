@@ -7,8 +7,8 @@ class Program
     static void Main()
     {
         // Creating an array of 10 students with names and ages
-        string[] studentNames = new string[] { "Mobola", "Bob", "Charlie", "David", "Emma", "Frank", "Grace", "Henry", "Isabel", "Jack" };
-        int[] studentAges = new int[] { 17, 19, 18, 20, 16, 18, 21, 17, 19, 22 };
+        string[] studentNames = new string[] { "Mobola", "Janet", "Gideon", "Lara", "Divine", "Solomon", "Dominic", "Jasmine", "Seun", "Dennis" };
+        int[] studentAges = new int[] { 25, 16, 18, 19, 24, 22, 30, 15, 26, 18 };
 
         // Get students grouped by their ages
         Dictionary<int, List<string>> studentsByAge = StudentData.GetStudentsWithAge(studentAges, studentNames);
